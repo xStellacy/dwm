@@ -1,0 +1,32 @@
+--- dwm.c
++++ dwm.c
+@@ -1870,9 +1958,12 @@ unmanage(Client *c, int destroyed)
+ 		XUngrabServer(dpy);
+ 	}
+ 	free(c);
+-	focus(NULL);
+-	updateclientlist();
+-	arrange(m);
++
++	if (!s) {
++		arrange(m);
++		focus(NULL);
++		updateclientlist();
++	}
+ }
+ 
+ void
+@@ -2356,10 +2577,12 @@ main(int argc, char *argv[])
+ 		fputs("warning: no locale support\n", stderr);
+ 	if (!(dpy = XOpenDisplay(NULL)))
+ 		die("dwm: cannot open display");
++	if (!(xcon = XGetXCBConnection(dpy)))
++		die("dwm: cannot get xcb connection\n");
+ 	checkotherwm();
+ 	setup();
+ #ifdef __OpenBSD__
+-	if (pledge("stdio rpath proc exec", NULL) == -1)
++	if (pledge("stdio rpath proc exec ps", NULL) == -1)
+ 		die("pledge");
+ #endif /* __OpenBSD__ */
+ 	scan();
