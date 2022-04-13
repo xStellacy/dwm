@@ -18,12 +18,20 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
+static const unsigned int baralpha = 0xCC;
+static const unsigned int borderalpha = OPAQUE;
 //#include "/home/stellacy/.cache/wal/colors-wal-dwm.h"
 //#include "/home/stellacy/cfgs/colors-wal-dwm.h"
 #include "/home/stellacy/.config/wal/colors-wal-dwm.h"
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tagsalt[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tagsalt[] = { "", "", "", "", "", "", "", "", "" };
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
 
 static const Rule rules[] = {
