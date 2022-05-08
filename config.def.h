@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx  = 3;        /* border pixel of windows */
+static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 10;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
@@ -20,9 +20,9 @@ static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
 static const unsigned int baralpha = 0xCC;
 static const unsigned int borderalpha = OPAQUE;
-//#include "/home/stellacy/.cache/wal/colors-wal-dwm.h"
+#include "/home/stellacy/.cache/wal/colors-wal-dwm.h"
 //#include "/home/stellacy/cfgs/colors-wal-dwm.h"
-#include "/home/stellacy/.config/colors-wal-dwm.h"
+//#include "/home/stellacy/.config/colors-wal-dwmred.h"
 //#include "/home/stellacy/.config/wal/colors-wal-dwm.h"
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -111,6 +111,8 @@ static Key keys[] = {
 	{ MODKEY,			            XK_equal,  spawn,	       SHCMD("pamixer --allow-boost -i 5") },
 	{ MODKEY|ShiftMask,			    XK_Tab,    spawn,	       SHCMD("sudo rm -rf ~/cfgs/dwm/config.h && cd ~/cfgs/dwm && sudo make clean install") },
  	{ 0,                            XK_Print,  spawn,          SHCMD("cd ~/Pictures/Screenshots && import pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+    { 0,                            XK_Scroll_Lock,  spawn,          SHCMD("~/cfgs/scripts/video.sh") },
+    { 0,                            XK_Pause,  spawn,          SHCMD("~/cfgs/scripts/video.sh end") },
 //	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
