@@ -33,13 +33,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-//#include "/home/stellacy/.cache/wal/colors-wal-dwm.h"
-//#include "/home/stellacy/cfgs/colors-wal-dwm.h"
-//#include "/home/stellacy/.config/colors-wal-dwmred.h"
-//#include "/home/stellacy/.config/wal/colors-wal-dwm.h"
-
 /* tagging */
-//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "", "", "", "", "", "", "", "", "" };
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
@@ -123,7 +117,7 @@ static Key keys[] = {
 	{ MODKEY,			            XK_minus,  spawn,	       SHCMD("pamixer --allow-boost -d 5") },
 	{ MODKEY,			            XK_equal,  spawn,	       SHCMD("pamixer --allow-boost -i 5") },
 	{ MODKEY|ShiftMask,			    XK_Tab,    spawn,	       SHCMD("sudo rm -rf ~/cfgs/dwm/config.h && cd ~/cfgs/dwm && sudo make clean install") },
- 	{ 0,                            XK_Print,  spawn,          SHCMD("cd ~/Pictures/Screenshots && import pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+ 	{ 0,                            XK_Print,  spawn,          SHCMD("cd ~/Pictures/Screenshots && import $(date '+%y%m%d-%H%M-%S').png") },
     { 0,                            XK_Scroll_Lock,  spawn,          SHCMD("~/cfgs/scripts/video.sh") },
     { 0,                            XK_Pause,  spawn,          SHCMD("~/cfgs/scripts/video.sh end") },
 //	{ MODKEY,                       XK_b,      togglebar,      {0} },
